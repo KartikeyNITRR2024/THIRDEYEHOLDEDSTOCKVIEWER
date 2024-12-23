@@ -64,7 +64,7 @@ private static final Logger logger = LoggerFactory.getLogger(StocksPriceChangesC
         		currentPrice = holdedStockPayload.getPrice();
         	}
         	HoldedStockStatus newStatus = findCurrentStatus(holdedStock.getAllStatus(), currentPrice);
-        	if(newStatus == null)
+        	if(newStatus == null && holdedStock.getCurrent()!=null)
         	{
         		ChangeDetails changeDetails = new ChangeDetails();
         		changeDetails.setUserId(holdedStock.getUserId());
@@ -81,7 +81,7 @@ private static final Logger logger = LoggerFactory.getLogger(StocksPriceChangesC
         			changeDetails.getStatusList().add(changeStatusDetails);
         		}
         		holdedStockPayload.getChangeDetailsList().add(changeDetails);
-        		holdedStock.setCurrent(holdedStock.getAllStatus().get(0));
+        		holdedStock.setCurrent(null);
         		holdedStockServiveImpl.updateHoldStock(holdedStock);
         	}
         	else if(!newStatus.getHoldedStockStatusId().equals(holdedStock.getCurrent().getHoldedStockStatusId()))
