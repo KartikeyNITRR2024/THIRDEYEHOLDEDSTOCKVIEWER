@@ -84,7 +84,7 @@ private static final Logger logger = LoggerFactory.getLogger(StocksPriceChangesC
         		holdedStock.setCurrent(null);
         		holdedStockServiveImpl.updateHoldStock(holdedStock);
         	}
-        	else if(!newStatus.getHoldedStockStatusId().equals(holdedStock.getCurrent().getHoldedStockStatusId()))
+        	else if((holdedStock.getCurrent() == null && newStatus!=null) || (!newStatus.getHoldedStockStatusId().equals(holdedStock.getCurrent().getHoldedStockStatusId())))
         	{
         		ChangeDetails changeDetails = new ChangeDetails();
         		changeDetails.setUserId(holdedStock.getUserId());
