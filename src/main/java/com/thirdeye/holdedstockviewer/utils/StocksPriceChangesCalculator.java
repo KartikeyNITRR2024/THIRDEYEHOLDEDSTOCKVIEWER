@@ -92,6 +92,7 @@ private static final Logger logger = LoggerFactory.getLogger(StocksPriceChangesC
         		changeDetails.setUserId(holdedStock.getUserId());
         		changeDetails.setChangeType(holdedStock.getType());
         		changeDetails.setNewPrice(currentPrice);
+        		changeDetails.setBuyingPrice(holdedStock.getBuyingPriceOfSingleStock());
         		for(HoldedStockStatus holdedStockStatus : holdedStock.getAllStatus())
         		{
         			ChangeStatusDetails changeStatusDetails = new ChangeStatusDetails();
