@@ -69,6 +69,7 @@ private static final Logger logger = LoggerFactory.getLogger(StocksPriceChangesC
         		ChangeDetails changeDetails = new ChangeDetails();
         		changeDetails.setUserId(holdedStock.getUserId());
         		changeDetails.setChangeType(holdedStock.getType());
+        		changeDetails.setNewPrice(currentPrice);
         		for(HoldedStockStatus holdedStockStatus : holdedStock.getAllStatus())
         		{
         			ChangeStatusDetails changeStatusDetails = new ChangeStatusDetails();
@@ -89,6 +90,7 @@ private static final Logger logger = LoggerFactory.getLogger(StocksPriceChangesC
         		ChangeDetails changeDetails = new ChangeDetails();
         		changeDetails.setUserId(holdedStock.getUserId());
         		changeDetails.setChangeType(holdedStock.getType());
+        		changeDetails.setNewPrice(currentPrice);
         		for(HoldedStockStatus holdedStockStatus : holdedStock.getAllStatus())
         		{
         			ChangeStatusDetails changeStatusDetails = new ChangeStatusDetails();
